@@ -10,6 +10,7 @@ const ChatForm = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+
     if (message) {
       setMessages((prevState) => [
         ...prevState,
