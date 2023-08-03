@@ -1,4 +1,5 @@
 import { io, Socket } from "socket.io-client";
+import { TRedisMessage } from "../types/message.types";
 
 export let socket: Socket;
 
@@ -28,5 +29,16 @@ export const subscribeChat = (callback: (message: string) => void) => {
   socket.on("receive-message", (message: string) => {
     // console.debug({ message });
     callback(message);
+  });
+};
+
+export const subscribeInitialMessages = (
+  callback: (messages: TRedisMessage[]) => void,
+) => {
+  if (!socket) return;
+
+  socket.on("message-list", (messages: TRedisMessage[]) => {
+    // console.debug({ messages });
+    callback(messages);
   });
 };
