@@ -1,5 +1,10 @@
 import React from "react";
 
+export type TRedisMessage = {
+  message: string;
+  when: number;
+};
+
 export type Message = {
   id: number;
   text: string;
