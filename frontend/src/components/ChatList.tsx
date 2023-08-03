@@ -1,7 +1,10 @@
-import React from "react";
+import styles from "./style.module.css";
+import { useChatContext } from "../context/ChatContext";
 
 const ChatList = () => {
-  return <div>TODO: Chat List</div>;
+  const { messages } = useChatContext();
+
+  return <div className={styles.chatlist}>TODO: Chat List</div>;
 };
 
 export default ChatList;
