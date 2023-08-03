@@ -1,10 +1,21 @@
 import styles from "./style.module.css";
 import { useChatContext } from "../context/ChatContext";
+import ChatItem from "./ChatItem";
 
 const ChatList = () => {
   const { messages } = useChatContext();
 
-  return <div className={styles.chatlist}>TODO: Chat List</div>;
+  console.debug({ messages });
+
+  return (
+    <div className={styles.chatlist}>
+      {messages.map((message) => (
+        <div key={message.id}>
+          <ChatItem message={message} />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default ChatList;
