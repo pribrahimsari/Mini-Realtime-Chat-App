@@ -11,7 +11,7 @@
 .chatlist {
     border: solid 1px #ddd;
     padding: 10px;
-    height: 400px;
+    height: 650px;
     width: 100%;
     margin: 40px auto 0 auto;
     background-color: cornsilk;
@@ -21,7 +21,6 @@
 .chatlist > div {
     display: flex;
     flex-direction: column;
-    /*height: 400px;*/ /*todo: check*/
     overflow: auto;
 }
 
