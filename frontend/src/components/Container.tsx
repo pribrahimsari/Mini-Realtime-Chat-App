@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import ChatList from "./ChatList";
 import ChatForm from "./ChatForm";
 import styles from "./style.module.css";
-import { socket, init, subscribeChat } from "../api/socketApi";
+import {
+  init,
+  socket,
+  subscribeChat,
+  subscribeInitialMessages,
+} from "../api/socketApi";
 import { useChatContext } from "../context/ChatContext";
 
 const Container = () => {
@@ -12,6 +17,10 @@ const Container = () => {
     if (socket) return;
 
     init();
+
+    subscribeInitialMessages((messages) => {
+      setMessages(messages.map((msg, i) => ({ id: i, text: msg.message })));
+    });
 
     subscribeChat((message) => {
       setMessages((prevState) => [
