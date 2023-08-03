@@ -1,9 +1,12 @@
-const app = require("express")();
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
-const cors = require("cors");
+import express from "express";
+import {Server} from "http";
+import {Server as SocketServer} from "socket.io";
+import cors from "cors";
+import Messages from "../lib/Messages"
 
-const Messages = require("./lib/Messages");
+const app = express();
+const http = new Server(app);
+const io = new SocketServer(http);
 
 app.use(cors());
 
@@ -19,7 +22,7 @@ io.on("connection", (socket) => {
 		socket.emit("message-list", data);
 	});
 
-	socket.on("new-message", (message) => {
+	socket.on("new-message", (message: string) => {
 		console.log(message);
 		Messages.upsert({ message });
 
