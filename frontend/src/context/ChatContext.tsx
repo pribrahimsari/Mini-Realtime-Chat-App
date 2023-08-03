@@ -1,18 +1,19 @@
 import React, { createContext, useContext, useState } from "react";
+import { Message, TChatContext } from "../types/message.types";
 
-type TChatContext = {
-  messages: null;
-  setMessages: React.Dispatch<React.SetStateAction<null>>;
+const defaultContextValue: TChatContext = {
+  messages: [],
+  setMessages: () => {},
 };
 
-const ChatContext = createContext<TChatContext | null>(null);
+const ChatContext = createContext<TChatContext>(defaultContextValue);
 
 export const ChatProvider = ({
   children,
 }: {
   children: React.ReactElement;
 }) => {
-  const [messages, setMessages] = useState(null);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const values = {
     messages,
