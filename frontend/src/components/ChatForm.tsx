@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const ChatForm = () => {
-    return (
-        <div>
-            TODO: Chat Form
-        </div>
-    );
+  return <div>TODO: Chat Form</div>;
 };
 
 export default ChatForm;

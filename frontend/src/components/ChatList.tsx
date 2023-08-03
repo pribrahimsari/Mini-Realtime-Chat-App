@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const ChatList = () => {
-    return (
-        <div>
-            TODO: Chat List
-        </div>
-    );
+  return <div>TODO: Chat List</div>;
 };
 
 export default ChatList;
