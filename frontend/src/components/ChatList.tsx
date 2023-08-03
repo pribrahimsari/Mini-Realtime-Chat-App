@@ -1,17 +1,19 @@
 import styles from "./style.module.css";
 import { useChatContext } from "../context/ChatContext";
 import ChatItem from "./ChatItem";
+import ScrollableFeed from "react-scrollable-feed";
 
 const ChatList = () => {
   const { messages } = useChatContext();
 
   return (
     <div className={styles.chatlist}>
-      {messages.map((message) => (
-        <div key={message.id}>
-          <ChatItem message={message} />
-        </div>
-      ))}
+      {/* @ts-ignore: ref: https://github.com/dizco/react-scrollable-feed/issues/87*/}
+      <ScrollableFeed forceScroll>
+        {messages.map((message) => (
+          <ChatItem key={message.id} message={message} />
+        ))}
+      </ScrollableFeed>
     </div>
   );
 };
