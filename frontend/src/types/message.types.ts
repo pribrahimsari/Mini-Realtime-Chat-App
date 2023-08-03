@@ -2,7 +2,7 @@ import React from "react";
 
 export type Message = {
   id: number;
-  message: string;
+  text: string;
 };
 
 export type TChatContext = {
